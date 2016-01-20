@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120133545) do
+ActiveRecord::Schema.define(version: 20160120152431) do
 
   create_table "todo_items", force: true do |t|
     t.text     "json"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "todo_items2s", force: true do |t|
+    t.string   "startDate"
+    t.string   "endDate"
+    t.string   "priority"
+    t.text     "description"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

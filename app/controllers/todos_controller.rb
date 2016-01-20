@@ -1,11 +1,13 @@
 class TodosController < ApplicationController
   def index
 
+
     startDate = todo_params[:start]
     endDate = todo_params[:end]
     priority = todo_params[:priority]
     description = todo_params[:description]
     status = todo_params[:status]
+
 
 
     @db = CouchRest.database(ENV['DB'])
@@ -18,12 +20,16 @@ class TodosController < ApplicationController
       status: status
     })
 
-    render :params
+  #  @todos = TodoItems.new(test)
+  #  @todos.save
+
+
   end
 
   def todo_params
     #params.require(:todo).permit(:start).permit(:end).permit(:priority).permit(:description)
     params.permit(:start, :end, :priority, :description, :status)
   end
+
 
 end
